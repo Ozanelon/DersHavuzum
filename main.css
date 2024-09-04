@@ -2,7 +2,7 @@
 	flex: 1;
 	padding: 20px;
 	text-align: center;
-	color: #fffdd0;
+	color: #FFFFFF;
 }
 
 h1 {
@@ -56,12 +56,12 @@ body {
 	background-attachment: fixed;
 	background-position: center center;
 	background-size: cover;
-	background-color: #003153;
+	background-color: #083669;
 }
 
 @media (max-width: 600px) {
 	body {
-		background-color: #003153;
+		background-color: #083669;
 	}
 }
 
@@ -73,8 +73,8 @@ body {
 	text-decoration: none;
 	margin: 5px 2px;
 	border-radius: 50%;
-	background: #003153;
-	color: #fffdd0;
+	background: #083669;
+	color: #FFFFFF;
 }
 
 .social-links .fa {
