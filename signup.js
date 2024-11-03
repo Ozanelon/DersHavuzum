@@ -27,6 +27,7 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     checkSchoolNumber(schoolNumber)
         .then(isAvailable => {
             if (!isAvailable) {
+                // Eğer okul numarası mevcutsa
                 alert('Bu okul numarası zaten kayıtlı! Lütfen başka bir numara girin.');
                 return; // Kayıt işlemini durdur
             }
@@ -38,23 +39,27 @@ document.getElementById('signup-form').addEventListener('submit', function(event
                     const user = userCredential.user;
 
                     // Okul numarasını Firestore'a kaydet
-                    db.collection("users").doc(user.uid).set({
+                    return db.collection("users").doc(user.uid).set({
                         name: name,
                         surname: surname,
                         schoolNumber: schoolNumber,
                         email: email
-                    })
-                    .then(() => {
-                        console.log('Kullanıcı bilgileri Firestore\'a kaydedildi:', user);
-                        alert('Kayıt başarılı! Giriş yapabilirsiniz.');
-                        // Kayıt sonrası yönlendirme
-                        window.location.href = "success.html"; // Kullanıcının gideceği sayfa
                     });
+                })
+                .then(() => {
+                    // Kullanıcı bilgileri Firestore'a kaydedildi
+                    alert('Kayıt başarılı! Giriş yapabilirsiniz.');
+                    // Kayıt sonrası yönlendirme
+                    window.location.href = "index.html"; // Kullanıcının gideceği sayfa
                 })
                 .catch((error) => {
                     console.error('Hata:', error);
                     alert('Kayıt başarısız! Lütfen bilgilerinizi kontrol edin.');
                 });
+        })
+        .catch((error) => {
+            console.error("Okul numarası kontrol hatası: ", error);
+            alert('Okul numarası kontrolü sırasında bir hata oluştu. Lütfen tekrar deneyin.');
         });
 });
 
