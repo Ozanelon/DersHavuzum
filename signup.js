@@ -7,6 +7,7 @@ const firebaseConfig = {
     messagingSenderId: "598119515571",
     appId: "1:598119515571:web:6d597491ced0418e9e37c6"
 };
+
 // Firebase'i başlat
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
@@ -20,6 +21,12 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     const schoolNumber = document.getElementById('signup-school-number').value;
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
+
+    // Okul numarası doğrulama
+    if (!isValidSchoolNumber(schoolNumber)) {
+        alert('Geçersiz okul numarası! Lütfen yalnızca rakamlardan oluşan bir numara girin.');
+        return; // Kayıt işlemini durdur
+    }
 
     // Kullanıcı kaydı işlemi
     auth.createUserWithEmailAndPassword(email, password)
@@ -36,3 +43,10 @@ document.getElementById('signup-form').addEventListener('submit', function(event
             alert('Kayıt başarısız! Lütfen bilgilerinizi kontrol edin.');
         });
 });
+
+
+// Okul numarasının geçerli olup olmadığını kontrol eden fonksiyon
+function isValidSchoolNumber(schoolNumber) {
+    const schoolNumberPattern = /^[0-9]+$/; // Sadece rakamlardan oluşmalı
+    return schoolNumberPattern.test(schoolNumber);
+}
