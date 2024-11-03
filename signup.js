@@ -8,6 +8,7 @@ const firebaseConfig = {
     appId: "1:598119515571:web:6d597491ced0418e9e37c6"
 };
 
+
 // Firebase'i başlat
 const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
@@ -23,7 +24,7 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
 
-    // Okul numarası kontrolü
+    // Okul numarasını kontrol et
     checkSchoolNumber(schoolNumber)
         .then(isAvailable => {
             if (!isAvailable) {
