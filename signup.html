@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ders Havuzum - Kayıt Ol</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Ders Havuzum</div>
+    </header>
+    <main>
+        <section class="signup-section">
+            <h1>Kayıt Ol</h1>
+            <form id="signup-form">
+                <input type="text" id="signup-name" placeholder="İsim" required>
+                <input type="text" id="signup-surname" placeholder="Soyisim" required>
+                <input type="text" id="signup-school-number" placeholder="Okul Numarası" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Şifre" required>
+                <button type="submit" class="btn">Kayıt Ol</button>
+            </form>
+            <p>Zaten kaydolduysanız <a href="index.html">Giriş Yapın</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Ders Havuzum. Tüm hakları saklıdır.</p>
+    </footer>
+    
+    <script src="signup.js"></script>
+</body>
+</html>
