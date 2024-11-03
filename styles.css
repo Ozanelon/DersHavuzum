@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #4a90e2;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    background: url('https://via.placeholder.com/1200x400') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+.btn {
+    background-color: #e94e77;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.courses {
+    padding: 20px;
+    text-align: center;
+}
+
+.course-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: 220px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #4a90e2;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
