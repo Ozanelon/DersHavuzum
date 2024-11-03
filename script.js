@@ -1,11 +1,11 @@
 // Firebase projenizi buraya yapılandırın
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyB6fpJAcVA7Ms-3C9ly4YDksuuu6Ue6puw",
+    authDomain: "dershavuzum-e1074.firebaseapp.com",
+    projectId: "dershavuzum-e1074",
+    storageBucket: "dershavuzum-e1074.appspot.com",
+    messagingSenderId: "598119515571",
+    appId: "1:598119515571:web:6d597491ced0418e9e37c6"
 };
 
 // Firebase'i başlat
