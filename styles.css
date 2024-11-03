@@ -17,35 +17,24 @@ header .logo {
     font-weight: bold;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.hero {
-    background: url('https://via.placeholder.com/1200x400') no-repeat center center;
-    background-size: cover;
-    color: white;
+.login-section {
     text-align: center;
-    padding: 100px 20px;
+    padding: 50px;
 }
 
-.hero h1 {
-    font-size: 48px;
+.login-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
-.hero p {
-    font-size: 20px;
+.login-section input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .btn {
@@ -54,22 +43,7 @@ nav ul li a {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    text-decoration: none;
-}
-
-.courses {
-    padding: 20px;
-    text-align: center;
-}
-
-.course-card {
-    background: white;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    width: 220px;
+    cursor: pointer;
 }
 
 footer {
