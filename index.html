@@ -52,5 +52,28 @@
     <footer>
         <p>&copy; 2024 Ders Havuzum. Tüm hakları saklıdır.</p>
     </footer>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB6fpJAcVA7Ms-3C9ly4YDksuuu6Ue6puw",
+    authDomain: "dershavuzum-e1074.firebaseapp.com",
+    projectId: "dershavuzum-e1074",
+    storageBucket: "dershavuzum-e1074.firebasestorage.app",
+    messagingSenderId: "598119515571",
+    appId: "1:598119515571:web:6d597491ced0418e9e37c6",
+    measurementId: "G-SVN7K0GPL9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
