@@ -3,77 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ders Havuzum</title>
+    <title>Ders Havuzum - Giriş</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
 </head>
 <body>
     <header>
         <div class="logo">Ders Havuzum</div>
-        <nav>
-            <ul>
-                <li><a href="#">Anasayfa</a></li>
-                <li><a href="#">Dersler</a></li>
-                <li><a href="#">Kaynaklar</a></li>
-                <li><a href="#">Hakkında</a></li>
-                <li><a href="#">İletişim</a></li>
-            </ul>
-        </nav>
     </header>
     <main>
-        <section class="hero">
+        <section class="login-section">
             <h1>Hoş Geldiniz!</h1>
-            <p>Derslerinizi geliştirin, yeni bilgiler öğrenin.</p>
-            <a href="#" class="btn">Dersleri İncele</a>
-        </section>
-        <section class="courses">
-            <h2>Derslerimiz</h2>
-            <div class="course-card">
-                <h3>Matematik</h3>
-                <p>Temel matematik konuları ve pratik çözümler.</p>
-                <a href="#" class="btn">Detaylar</a>
-            </div>
-            <div class="course-card">
-                <h3>Türkçe</h3>
-                <p>Dil bilgisi ve okuma becerileri.</p>
-                <a href="#" class="btn">Detaylar</a>
-            </div>
-            <div class="course-card">
-                <h3>Fen Bilimleri</h3>
-                <p>Bilimsel kavramlar ve deneyler hakkında bilgiler.</p>
-                <a href="#" class="btn">Detaylar</a>
-            </div>
-            <div class="course-card">
-                <h3>Sosyal Bilgiler</h3>
-                <p>Tarih, coğrafya ve toplum konuları.</p>
-                <a href="#" class="btn">Detaylar</a>
-            </div>
+            <form id="login-form">
+                <input type="text" id="name" placeholder="İsim" required>
+                <input type="text" id="surname" placeholder="Soyisim" required>
+                <input type="text" id="school-number" placeholder="Okul Numarası" required>
+                <button type="submit" class="btn">Giriş Yap</button>
+            </form>
+            <p>Henüz kaydolmadıysanız <a href="#" id="signup-link">Kayıt Olun</a></p>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Ders Havuzum. Tüm hakları saklıdır.</p>
     </footer>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyB6fpJAcVA7Ms-3C9ly4YDksuuu6Ue6puw",
-    authDomain: "dershavuzum-e1074.firebaseapp.com",
-    projectId: "dershavuzum-e1074",
-    storageBucket: "dershavuzum-e1074.firebasestorage.app",
-    messagingSenderId: "598119515571",
-    appId: "1:598119515571:web:6d597491ced0418e9e37c6",
-    measurementId: "G-SVN7K0GPL9"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
