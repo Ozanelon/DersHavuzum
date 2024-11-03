@@ -48,7 +48,7 @@ document.getElementById('signup-form').addEventListener('submit', function(event
                         console.log('Kullanıcı bilgileri Firestore\'a kaydedildi:', user);
                         alert('Kayıt başarılı! Giriş yapabilirsiniz.');
                         // Kayıt sonrası yönlendirme
-                        window.location.href = "index.html"; // Kullanıcının gideceği sayfa
+                        window.location.href = "success.html"; // Kullanıcının gideceği sayfa
                     });
                 })
                 .catch((error) => {
