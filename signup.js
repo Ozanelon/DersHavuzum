@@ -41,7 +41,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
         });
 
         alert('Kayıt başarılı! Giriş yapabilirsiniz.');
-        window.location.href = "index.html"; // Kullanıcının gideceği sayfa
+        window.location.href = "login.html"; // Redirect to login page
     } catch (error) {
         console.error('Hata:', error);
         alert('Kayıt başarısız! Lütfen bilgilerinizi kontrol edin.');
