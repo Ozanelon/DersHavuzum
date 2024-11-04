@@ -1,57 +1,102 @@
-body {
-    font-family: Arial, sans-serif;
+/* Genel Stil Ayarları */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+/* Sayfa Renkleri */
+:root {
+    --primary-color: #003153; /* Prussian Blue */
+    --secondary-color: #ffffff; /* Beyaz */
+    --accent-color: #1e90ff; /* Daha açık mavi vurgular için */
+}
+
+/* Gövde Stili */
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
 header {
-    background: #4a90e2;
-    color: white;
-    padding: 15px 0;
+    background-color: var(--primary-color);
+    padding: 20px;
     text-align: center;
-}
-
-header .logo {
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: bold;
+    color: var(--secondary-color);
 }
 
-.login-section {
-    text-align: center;
-    padding: 50px;
-}
-
-.login-section h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.login-section input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    width: 80%;
-    max-width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn {
-    background-color: #e94e77;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #4a90e2;
-    color: white;
-    position: relative;
-    bottom: 0;
+/* Kayıt Bölümü */
+.signup-section {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 40px auto;
+    text-align: center;
+}
+
+.signup-section h1 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Form Elemanları */
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form input[type="password"],
+#signup-form button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form input[type="password"] {
+    background-color: #f4f4f4;
+    color: var(--primary-color);
+}
+
+#signup-form button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#signup-form button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Altbilgi */
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    margin-top: auto;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
