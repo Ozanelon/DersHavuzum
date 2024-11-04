@@ -1,6 +1,6 @@
 // Firebase projenizi buraya yapılandırın
 const firebaseConfig = {
-    apiKey: "AIzaSyB6fpJAcVA7Ms-3C9ly4YDksuuu6Ue6puw",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "dershavuzum-e1074.firebaseapp.com",
     projectId: "dershavuzum-e1074",
     storageBucket: "dershavuzum-e1074.appspot.com",
@@ -14,7 +14,7 @@ const auth = firebase.auth();
 const db = firebase.firestore(); // Firestore'u başlat
 
 // Kayıt olma işlemi
-document.getElementById('signup-form').addEventListener('submit', function(event) {
+document.getElementById('signup-form').addEventListener('submit', async function(event) {
     event.preventDefault(); // Formun varsayılan gönderimini engelle
 
     const name = document.getElementById('signup-name').value;
@@ -23,54 +23,38 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
 
-    // Okul numarasını kontrol et
-    checkSchoolNumber(schoolNumber)
-        .then(isAvailable => {
-            if (!isAvailable) {
-                // Eğer okul numarası mevcutsa
-                alert('Bu okul numarası zaten kayıtlı! Lütfen başka bir numara girin.');
-                return; // Kayıt işlemini durdur
-            }
+    try {
+        const isAvailable = await checkSchoolNumber(schoolNumber);
+        if (!isAvailable) {
+            alert('Bu okul numarası zaten kayıtlı! Lütfen başka bir numara girin.');
+            return;
+        }
 
-            // Kullanıcı kaydı işlemi
-            auth.createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    // Kayıt başarılı
-                    const user = userCredential.user;
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
 
-                    // Okul numarasını Firestore'a kaydet
-                    return db.collection("users").doc(user.uid).set({
-                        name: name,
-                        surname: surname,
-                        schoolNumber: schoolNumber,
-                        email: email
-                    });
-                })
-                .then(() => {
-                    // Kullanıcı bilgileri Firestore'a kaydedildi
-                    alert('Kayıt başarılı! Giriş yapabilirsiniz.');
-                    // Kayıt sonrası yönlendirme
-                    window.location.href = "index.html"; // Kullanıcının gideceği sayfa
-                })
-                .catch((error) => {
-                    console.error('Hata:', error);
-                    alert('Kayıt başarısız! Lütfen bilgilerinizi kontrol edin.');
-                });
-        })
-        .catch((error) => {
-            console.error("Okul numarası kontrol hatası: ", error);
-            alert('Okul numarası kontrolü sırasında bir hata oluştu. Lütfen tekrar deneyin.');
+        await db.collection("users").doc(user.uid).set({
+            name: name,
+            surname: surname,
+            schoolNumber: schoolNumber,
+            email: email
         });
+
+        alert('Kayıt başarılı! Giriş yapabilirsiniz.');
+        window.location.href = "index.html"; // Kullanıcının gideceği sayfa
+    } catch (error) {
+        console.error('Hata:', error);
+        alert('Kayıt başarısız! Lütfen bilgilerinizi kontrol edin.');
+    }
 });
 
 // Okul numarasının Firestore'da var olup olmadığını kontrol eden fonksiyon
-function checkSchoolNumber(schoolNumber) {
-    return db.collection("users").where("schoolNumber", "==", schoolNumber).get()
-        .then((querySnapshot) => {
-            return querySnapshot.empty; // Eğer boşsa, okul numarası yoktur
-        })
-        .catch((error) => {
-            console.error("Okul numarası kontrol hatası: ", error);
-            return false; // Hata durumunda false döndür
-        });
+async function checkSchoolNumber(schoolNumber) {
+    try {
+        const querySnapshot = await db.collection("users").where("schoolNumber", "==", schoolNumber).get();
+        return querySnapshot.empty; // Eğer boşsa, okul numarası yoktur
+    } catch (error) {
+        console.error("Okul numarası kontrol hatası: ", error);
+        return false; // Hata durumunda false döndür
+    }
 }
